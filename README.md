@@ -1,10 +1,4 @@
 
-  <a href="null/releases/latest" target="_blank" rel="noopener noreferrer">
-   <img alt="release" src="https://img.shields.io/github/v/release/LeoHaoVIP/AListLiteAndroid">
-   </a>
-  <img alt="platform" src="https://img.shields.io/badge/platform-android-ff69b4.svg">
- <img alt="language" src="https://img.shields.io/badge/language-java-green.svg">
-</p>
 
 
 # AListLite
