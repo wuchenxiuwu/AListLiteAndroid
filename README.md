@@ -11,7 +11,7 @@
 
 # AListLite
 
-[AListLite](https://github.com/LeoHaoVIP/AListLiteAndroid) 是一款支持运行 AList 服务的 Android 应用，相对于教程 [BV1ex4y157xJ](reward.html这是官方文件由于跳转入口已被我清除所以这在编译的时候 你可以直接把它删除他并不会给您带来什么影响不过你要注意的是 删除这个的同时 你需要把images目录下的rewardcode.png这个文件给删除) 用户无需借助安装 Termux 即可实现在 Android 设备（手机/电视）上使用 AList 服务。
+[AListLite](https://github.com/LeoHaoVIP/AListLiteAndroid) 是一款支持运行 AList 服务的 Android 应用，相对于教程 [](reward.html这是官方文件由于跳转入口已被我清除所以这在编译的时候 你可以直接把它删除他并不会给您带来什么影响不过你要注意的是 删除这个的同时 你需要把images目录下的rewardcode.png这个文件给删除) 用户无需借助安装 Termux 即可实现在 Android 设备（手机/电视）上使用 AList 服务。
 
 [AListLite](https://github.com/LeoHaoVIP/AListLiteAndroid) 支持服务一键启动、后台常驻和版本更新等功能，界面简洁，上手简单。
 
