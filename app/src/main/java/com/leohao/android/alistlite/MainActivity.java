@@ -302,10 +302,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 if (!url.startsWith("http") && !url.startsWith("file")) {
-                    try {
-                        openExternalUrl(url);
-                    } catch (Exception ignored) {
-                    }
                     return true;
                 }
                 return super.shouldOverrideUrlLoading(view, url);
@@ -557,21 +553,6 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setAttributes(lp);
         // 此方法用来设置浮动层，防止部分手机变暗无效
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-    }
-
-    /**
-     * 打开外部链接
-     *
-     * @param url URL 链接
-     */
-    private void openExternalUrl(String url) {
-        try {
-            //跳转到浏览器下载
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-            startActivity(intent);
-        } catch (Exception e) {
-            showToast("无法打开此外部链接");
-        }
     }
 
     /**
