@@ -1,6 +1,4 @@
-<p align="center"><a href="null" target="_blank" rel="noopener noreferrer"><img width="100" src="./README/ic_launcher.png" alt="yoga logo"></a></p>
-<h3 align="center">AListLite | 无需配置即可在 Android 上运行 AList 服务</h3>
-<p align="center">
+
   <a href="null/releases/latest" target="_blank" rel="noopener noreferrer">
    <img alt="release" src="https://img.shields.io/github/v/release/LeoHaoVIP/AListLiteAndroid">
    </a>
