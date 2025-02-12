@@ -82,9 +82,3 @@
 <center class="half">
 <img src="./README/config-manage.jpg" alt="高级配置管理页面" style="zoom:15%"/>
 </center>
-
-# Support
-
-Email: <zhaowenhao2867@outlook.com>
-
-Bilibili: [AListLite | 一款支持运行 AList 服务的 Android 应用](https://www.bilibili.com/video/BV1PA4m1G7Ui)
