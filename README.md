@@ -3,7 +3,7 @@
 
 # AListLite
 
-[AListLite](https://github.com/LeoHaoVIP/AListLiteAndroid) (精简掉了大部分官方页面中没有用的检查更新以及开发者贡献等保留了最原始的服务) 用户无需借助安装 Termux 即可实现在 Android 设备（手机/电视）上使用 AList 服务。
+[AListLite](https://github.com/LeoHaoVIP/AListLiteAndroid) (精简掉了大部分官方页面中没有用的检查更新以及开发者贡献等保留了最原始的服务：目前同步了主分支的最新版本需要的可以编译使用) 用户无需借助安装 Termux 即可实现在 Android 设备（手机/电视）上使用 AList 服务。
 
 [AListLite](https://github.com/LeoHaoVIP/AListLiteAndroid) 支持服务一键启动、后台常驻和版本更新等功能，界面简洁，上手简单。
 
