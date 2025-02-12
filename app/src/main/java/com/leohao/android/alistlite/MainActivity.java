@@ -92,8 +92,6 @@ public class MainActivity extends AppCompatActivity {
         initFocusSettings();
         //权限检查
         checkPermissions();
-        //检查系统更新
-        checkUpdates(null);
         //初始化广播发送定时器
         initBroadcastScheduler();
     }
@@ -439,82 +437,6 @@ public class MainActivity extends AppCompatActivity {
                 editButton.setImageResource(R.drawable.save);
             }
         });
-    }
-
-    /**
-     * 检查版本更新
-     *
-     * @param view view
-     */
-    public void checkUpdates(View view) {
-        new Thread(() -> {
-            //获取最新release版本信息
-            try {
-                //捕捉HTTP请求异常
-                String releaseInfo = null;
-                try {
-                    releaseInfo = MyHttpUtil.request(Constants.URL_RELEASE_LATEST, Method.GET);
-                } catch (Throwable t) {
-                    Looper.prepare();
-                    showToast("无法获取更新: " + t.getLocalizedMessage());
-                    Looper.loop();
-                    Log.e(TAG, "checkUpdates: " + t.getLocalizedMessage());
-                }
-                JSONObject release = JSONUtil.parseObj(releaseInfo);
-                if (!release.containsKey("tag_name")) {
-                    Looper.prepare();
-                    showToast("未发现新版本信息");
-                    Looper.loop();
-                    return;
-                }
-                //设备 CPU 支持的 ABI 名称
-                String abiName = AppUtil.getAbiName();
-                //若 ABI 名称不在支持的分包架构列表中，则下载完整的安装包
-                if (!Constants.SUPPORTED_DOWNLOAD_ABI_NAMES.contains(abiName)) {
-                    abiName = Constants.UNIVERSAL_ABI_NAME;
-                }
-                //最新版本号
-                String latestVersion = release.getStr("tag_name").substring(1);
-                //最新版本基于的AList版本
-                String latestOnAlistVersion = release.getStr("name").substring(12);
-                //版本更新日志
-                String updateJournal = String.format("\uD83D\uDD25 新版本基于 AList %s 构建\r\n\r\n%s", latestOnAlistVersion, release.getStr("body"));
-                //新版本APK下载地址（Github）
-                String downloadLinkGitHub = (String) release.getByPath("assets[0].browser_download_url");
-                //镜像加速地址
-                String downloadLinkFast = String.format("%s/v%s/AListLite-v%s-%s-release.apk", Constants.QUICK_DOWNLOAD_ADDRESS, latestVersion, latestVersion, abiName);
-                //发现新版本
-                if (latestVersion.compareTo(currentAppVersion) > 0) {
-                    Looper.prepare();
-                    String dialogTitle = String.format("\uD83C\uDF89 AListLite %s 已发布", latestVersion);
-                    //弹出更新下载确认
-                    AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
-                    dialog.setTitle(dialogTitle);
-                    dialog.setMessage(updateJournal);
-                    dialog.setCancelable(true);
-                    dialog.setPositiveButton("镜像加速下载", (dialog1, which) -> {
-                        //跳转到浏览器下载
-                        openExternalUrl(downloadLinkFast);
-                    });
-                    dialog.setNeutralButton("GitHub官网下载", (dialog2, which) -> {
-                        //跳转到浏览器下载
-                        openExternalUrl(downloadLinkGitHub);
-                    });
-                    dialog.setNegativeButton("取消", (dialog3, which) -> {
-                    });
-                    dialog.show();
-                    Looper.loop();
-                } else {
-                    if (view != null) {
-                        Looper.prepare();
-                        showToast("当前已是最新版本");
-                        Looper.loop();
-                    }
-                }
-            } catch (Exception e) {
-                Log.e(TAG, "checkUpdates: " + e.getLocalizedMessage());
-            }
-        }).start();
     }
 
     /**
